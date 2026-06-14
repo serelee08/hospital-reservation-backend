@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hospital.reservation.dao.PatientDAO">
+
+    <select id="findAll" resultType="com.hospital.reservation.vo.PatientVO">
+        SELECT * FROM patient ORDER BY patient_no
+    </select>
+
+    <select id="findById" resultType="com.hospital.reservation.vo.PatientVO">
+        SELECT * FROM patient WHERE patient_no = #{patientNo}
+    </select>
+
+    <insert id="insert" parameterType="com.hospital.reservation.vo.PatientVO">
+        INSERT INTO patient (member_id, password, name, phone, birth_date, gender)
+        VALUES (#{memberId}, #{password}, #{name}, #{phone}, #{birthDate}, #{gender})
+    </insert>
+
+    <update id="update" parameterType="com.hospital.reservation.vo.PatientVO">
+        UPDATE patient
+        SET name       = #{name},
+            phone      = #{phone},
+            birth_date = #{birthDate},
+            gender     = #{gender}
+        WHERE patient_no = #{patientNo}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM patient WHERE patient_no = #{patientNo}
+    </delete>
+
+</mapper>

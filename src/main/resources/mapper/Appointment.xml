@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hospital.reservation.dao.AppointmentDAO">
+
+    <select id="findAll" resultType="com.hospital.reservation.vo.AppointmentVO">
+        SELECT * FROM appointment ORDER BY appointment_no
+    </select>
+
+    <select id="findById" resultType="com.hospital.reservation.vo.AppointmentVO">
+        SELECT * FROM appointment WHERE appointment_no = #{appointmentNo}
+    </select>
+
+    <select id="findByPatient" resultType="com.hospital.reservation.vo.AppointmentVO">
+        SELECT * FROM appointment WHERE patient_no = #{patientNo}
+    </select>
+
+    <select id="findByDoctor" resultType="com.hospital.reservation.vo.AppointmentVO">
+        SELECT * FROM appointment WHERE doctor_no = #{doctorNo}
+    </select>
+
+    <insert id="insert" parameterType="com.hospital.reservation.vo.AppointmentVO">
+        INSERT INTO appointment (patient_no, doctor_no, appointment_dt, status, memo)
+        VALUES (#{patientNo}, #{doctorNo}, #{appointmentDt}, #{status}, #{memo})
+    </insert>
+
+    <update id="updateStatus" parameterType="com.hospital.reservation.vo.AppointmentVO">
+        UPDATE appointment
+        SET status = #{status}
+        WHERE appointment_no = #{appointmentNo}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM appointment WHERE appointment_no = #{appointmentNo}
+    </delete>
+
+</mapper>

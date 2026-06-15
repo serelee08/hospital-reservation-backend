@@ -1,6 +1,6 @@
 # 🏥 Hospital Reservation System
 
-Spring Boot + MyBatis + MySQL + AI 기반 병원 예약 관리 시스템
+Spring Boot + MyBatis + MySQL 기반 병원 예약 관리 시스템
 
 진료과 · 환자 · 의사 · 예약 · 진료기록 5개 도메인의 RESTful API를 제공합니다.
 
@@ -39,6 +39,8 @@ Spring Boot + MyBatis + MySQL + AI 기반 병원 예약 관리 시스템
 ---
 
 ## 🗄 데이터베이스 설계 (ERD)
+
+![ERD](./images/erd.png)
 
 ```
 department (진료과)
@@ -197,6 +199,6 @@ mybatis.configuration.map-underscore-to-camel-case=true
 
 ## 👤 개발자
 
-**이지애 (Serena)**
+**이지애 (Serena Jiae Lee)**
 - GitHub: [@serelee08](https://github.com/serelee08)
 - Email: serelee08@gmail.com

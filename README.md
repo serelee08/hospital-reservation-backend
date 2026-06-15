@@ -1,6 +1,6 @@
 # 🏥 Hospital Reservation System
 
-Spring Boot + MyBatis + MySQL 기반 병원 예약 관리 시스템
+Spring Boot + MyBatis + MySQL + AI 기반 병원 예약 관리 시스템
 
 진료과 · 환자 · 의사 · 예약 · 진료기록 5개 도메인의 RESTful API를 제공합니다.
 

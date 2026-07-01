@@ -17,4 +17,9 @@ public class AppointmentVO {
 	private String status;
 	private String memo;
 	private LocalDateTime createdAt;
+	
+	// JOIN 결과 담는 표시용 DTO
+	private String patientName;
+	private String doctorName;
+	private String departmentName;
 }

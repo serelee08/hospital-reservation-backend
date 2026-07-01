@@ -5,8 +5,23 @@
 <mapper namespace="com.hospital.reservation.dao.AppointmentDAO">
 
     <select id="findAll" resultType="com.hospital.reservation.vo.AppointmentVO">
-        SELECT * FROM appointment ORDER BY appointment_no
-    </select>
+    SELECT
+        a.appointment_no,
+        a.patient_no,
+        a.doctor_no,
+        a.appointment_dt,
+        a.status,
+        a.memo,
+        a.created_at,
+        p.name AS patient_name,
+        d.name AS doctor_name,
+        dep.department_name AS department_name
+    FROM appointment a
+    JOIN patient p      ON a.patient_no = p.patient_no
+    JOIN doctor d       ON a.doctor_no = d.doctor_no
+    JOIN department dep ON d.department_no = dep.department_no
+    ORDER BY a.appointment_no
+</select>
 
     <select id="findById" resultType="com.hospital.reservation.vo.AppointmentVO">
         SELECT * FROM appointment WHERE appointment_no = #{appointmentNo}
